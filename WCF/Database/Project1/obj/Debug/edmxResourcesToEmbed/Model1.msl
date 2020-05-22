@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Ocasion" ColumnName="Ocasion" />
+          <ScalarProperty Name="People" ColumnName="People" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AditionalFileProprieties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.AditionalFilePropriety)">
+        <MappingFragment StoreEntitySet="AditionalFileProprieties">
+          <ScalarProperty Name="AditionalFileProprietyId" ColumnName="AditionalFileProprietyId" />
+          <ScalarProperty Name="ProprietyName" ColumnName="ProprietyName" />
+          <ScalarProperty Name="ProprietyValue" ColumnName="ProprietyValue" />
+          <ScalarProperty Name="ForeignFileId" ColumnName="ForeignFileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

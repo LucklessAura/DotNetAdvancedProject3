@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Files" EntityType="Model1.File" />
+    <EntitySet Name="AditionalFileProprieties" EntityType="Model1.AditionalFilePropriety" />
+    <AssociationSet Name="FileAditionalFilePropriety" Association="Model1.FileAditionalFilePropriety">
+      <End Role="File" EntitySet="Files" />
+      <End Role="AditionalFilePropriety" EntitySet="AditionalFileProprieties" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Public" />
+    <Property Name="FilePath" Type="String" Nullable="false" MaxLength="150" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Ocasion" Type="String" Nullable="true" MaxLength="50" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <Property Name="People" Type="String" Nullable="true" MaxLength="100" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <Property Name="Place" Type="String" Nullable="true" MaxLength="50" ConcurrencyMode="Fixed" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AditionalFileProprieties" Relationship="Model1.FileAditionalFilePropriety" FromRole="File" ToRole="AditionalFilePropriety" cg:SetterAccess="Public" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" cg:SetterAccess="Public" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="AditionalFilePropriety">
+    <Key>
+      <PropertyRef Name="AditionalFileProprietyId" />
+    </Key>
+    <Property Name="AditionalFileProprietyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Public" />
+    <Property Name="ProprietyName" Type="String" Nullable="false" MaxLength="50" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <Property Name="ProprietyValue" Type="String" Nullable="false" MaxLength="50" cg:SetterAccess="Public" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="File" Relationship="Model1.FileAditionalFilePropriety" FromRole="AditionalFilePropriety" ToRole="File" cg:SetterAccess="Public" />
+    <Property Name="ForeignFileId" Type="Int32" Nullable="false" cg:SetterAccess="Public" />
+  </EntityType>
+  <Association Name="FileAditionalFilePropriety">
+    <End Type="Model1.File" Role="File" Multiplicity="1" />
+    <End Type="Model1.AditionalFilePropriety" Role="AditionalFilePropriety" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="AditionalFilePropriety">
+        <PropertyRef Name="ForeignFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

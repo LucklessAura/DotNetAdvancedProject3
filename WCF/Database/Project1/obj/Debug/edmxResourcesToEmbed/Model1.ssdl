@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AditionalFileProprieties">
+    <Key>
+      <PropertyRef Name="AditionalFileProprietyId" />
+    </Key>
+    <Property Name="AditionalFileProprietyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProprietyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProprietyValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ForeignFileId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DateCreated" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Ocasion" Type="nvarchar" MaxLength="50" />
+    <Property Name="People" Type="nvarchar" MaxLength="100" />
+    <Property Name="Place" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FileAditionalFilePropriety">
+    <End Role="Files" Type="Self.Files" Multiplicity="1" />
+    <End Role="AditionalFileProprieties" Type="Self.AditionalFileProprieties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="AditionalFileProprieties">
+        <PropertyRef Name="ForeignFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="AditionalFileProprieties" EntityType="Self.AditionalFileProprieties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FileAditionalFilePropriety" Association="Self.FK_FileAditionalFilePropriety">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="AditionalFileProprieties" EntitySet="AditionalFileProprieties" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

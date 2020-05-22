@@ -20,7 +20,6 @@ D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\WebApp.RazorTargetAssemblyInfo.cache
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\WebApp.RazorTargetAssemblyInfo.cs
-D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\Connected Services\ImageManagerService\ConnectedService.json
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\WebApp.deps.json
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\WebApp.runtimeconfig.json
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\WebApp.runtimeconfig.dev.json
@@ -115,5 +114,7 @@ D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\WebApp.MvcApplicationPartsAssemblyInfo.cache
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Find.cshtml.g.cs
+D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\Connected Services\ServiceReferenceImageManager\ConnectedService.json
+D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\WebApp.MvcApplicationPartsAssemblyInfo.cache

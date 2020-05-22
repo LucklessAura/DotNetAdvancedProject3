@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Files" EntityType="Model1.Store.Files" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AditionalFileProprieties" EntityType="Model1.Store.AditionalFileProprieties" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FileAditionalFilePropriety" Association="Model1.Store.FileAditionalFilePropriety">
+      <End Role="File" EntitySet="Files" />
+      <End Role="AditionalFilePropriety" EntitySet="AditionalFileProprieties" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateCreated" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Ocasion" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="People" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Place" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AditionalFileProprieties">
+    <Key>
+      <PropertyRef Name="AditionalFileProprietyId" />
+    </Key>
+    <Property Name="AditionalFileProprietyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProprietyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProprietyValue" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ForeignFileId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FileAditionalFilePropriety">
+    <End Role="File" Type="Model1.Store.Files" Multiplicity="1" />
+    <End Role="AditionalFilePropriety" Type="Model1.Store.AditionalFileProprieties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="AditionalFilePropriety">
+        <PropertyRef Name="ForeignFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Files" EntityType="Model1.File" />
+          <EntitySet Name="AditionalFileProprieties" EntityType="Model1.AditionalFilePropriety" />
+          <AssociationSet Name="FileAditionalFilePropriety" Association="Model1.FileAditionalFilePropriety">
+            <End Role="File" EntitySet="Files" />
+            <End Role="AditionalFilePropriety" EntitySet="AditionalFileProprieties" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Public" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="50" cg:SetterAccess="Public" />
+          <Property Name="DateCreated" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Ocasion" Type="String" Nullable="true" MaxLength="50" cg:SetterAccess="Public" />
+          <Property Name="People" Type="String" Nullable="true" MaxLength="100" cg:SetterAccess="Public" />
+          <Property Name="Place" Type="String" Nullable="true" MaxLength="50" ConcurrencyMode="Fixed" cg:SetterAccess="Public" />
+          <NavigationProperty Name="AditionalFileProprieties" Relationship="Model1.FileAditionalFilePropriety" FromRole="File" ToRole="AditionalFilePropriety" cg:SetterAccess="Public" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" cg:SetterAccess="Public" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AditionalFilePropriety">
+          <Key>
+            <PropertyRef Name="AditionalFileProprietyId" />
+          </Key>
+          <Property Name="AditionalFileProprietyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Public" />
+          <Property Name="ProprietyName" Type="String" Nullable="false" MaxLength="50" cg:SetterAccess="Public" />
+          <Property Name="ProprietyValue" Type="String" Nullable="false" MaxLength="50" cg:SetterAccess="Public" />
+          <NavigationProperty Name="File" Relationship="Model1.FileAditionalFilePropriety" FromRole="AditionalFilePropriety" ToRole="File" cg:SetterAccess="Public" />
+          <Property Name="ForeignFileId" Type="Int32" Nullable="false" cg:SetterAccess="Public" />
+        </EntityType>
+        <Association Name="FileAditionalFilePropriety">
+          <End Type="Model1.File" Role="File" Multiplicity="1" />
+          <End Type="Model1.AditionalFilePropriety" Role="AditionalFilePropriety" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="FileId" />
+            </Principal>
+            <Dependent Role="AditionalFilePropriety">
+              <PropertyRef Name="ForeignFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Ocasion" ColumnName="Ocasion" />
+          <ScalarProperty Name="People" ColumnName="People" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AditionalFileProprieties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.AditionalFilePropriety)">
+        <MappingFragment StoreEntitySet="AditionalFileProprieties">
+          <ScalarProperty Name="AditionalFileProprietyId" ColumnName="AditionalFileProprietyId" />
+          <ScalarProperty Name="ProprietyName" ColumnName="ProprietyName" />
+          <ScalarProperty Name="ProprietyValue" ColumnName="ProprietyValue" />
+          <ScalarProperty Name="ForeignFileId" ColumnName="ForeignFileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,6 @@
+Parametrers:
+FileName     
+DateCreated     22-May-20
+Ocasion     
+People     
+Place     
