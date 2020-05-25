@@ -118,3 +118,4 @@ D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\Connected Services\ServiceReferenceImageManager\ConnectedService.json
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\WebApp.MvcApplicationPartsAssemblyInfo.cache
+D:\dotnet\advanced\git\DotNetAdvancedProject3\WebApp\WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Proprieties.cshtml.g.cs

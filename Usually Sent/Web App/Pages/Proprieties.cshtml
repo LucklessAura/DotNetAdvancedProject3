@@ -1,0 +1,29 @@
+﻿@page
+@model WebApp.ProprietiesModel
+@{
+    ViewData["Title"] = "Proprieties";
+}
+
+<h1>Proprieties</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                List of Unique Proprieties
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            foreach (var item in Model.proprieties)
+            {
+                <tr style="font-size:small" ><td>@Html.DisplayFor(modelItem => item)</td></tr >
+                
+            }
+         }
+</tbody>
+</table>
+
